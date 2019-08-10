@@ -14,16 +14,43 @@
         </menu>
         <main>
             <h1>A1Z26 Parser</h1>
-            <form class="example" action="l2n(document.getElementsByName('text').value)" style="margin:auto;max-width:700px">
-                <input type="text" placeholder="Search.." name="search2">
-                <button type="submit"><i class="fa fa-search"></i></button>
+            <form class="example" style="margin:auto;max-width:700px">
+                <input type="text" placeholder="Search.." id="funn">
+                <button type="button" onclick="l2n(funn.value)"><i class="fa fa-search"></i></button>
             </form>
+
+            <p id="printhere"></p>
+
             <p>Alex Lynd | Michael Lee</p>
+            <script>
+                    var alphabet= ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+                    var element = document.getElementById('printhere');
+                    /* change shit*/
+                    function l2n(letters) {
+                        element.innerHTML="";
+                        tmp= "";
+                        if (isNaN (letters)) { 
+                            tmp="number";
+                            console.log("number");
+                            console.log(letters);
+                        }
+                        else {
+                            console.log("not a number");
+                            letters=letters.toLowerCase();
+                            for (i=0; i<letters.length; i++){
+                                for(j=0; j<26; j++){
+                                    if (letters.charAt(i)==alphabet[j]) {
+                                        tmp+=j+1; tmp+=" ";
+                                    }
+                                }
+                            }
+                        }
+                        article_name = document.createElement("h2");
+                        article_name.innerHTML= tmp;
+                        element.appendChild(article_name);
+                    }
+            </script>
         </main>
-        <script>
-            function l2n(letters) {
-               console.log(letters);
-            }
-        </script>
+
     </body>
 </html> 
