@@ -8,40 +8,50 @@
     </head>
     <body>
         <menu>
-            <a href="">A1Z26</a>
-            <a href="">Converter</a>
-            <a href="">Quiz</a>
+            <a href="index.html">A1Z26</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="about.html">About</a>
+            <a href="" id="right">GitHub</a>
         </menu>
         <main>
-            <h1>A1Z26 Parser</h1>
-            <form class="example" style="margin:auto;max-width:700px">
-                <input type="text" placeholder="Search.." id="funn">
-                <button type="button" onclick="l2n(funn.value)"><i class="fa fa-search"></i></button>
-            </form>
+            <div class="centered">
+                <h1>A1Z26 Parser</h1>
+                <form class="searchForm" onsubmit="event.preventDefault(); l2n(raw.value)">
+                    <input type="text" placeholder="Enter Text..." id="raw">
+                    <button type="button" onclick="l2n(raw.value)"><i class="fa fa-search"></i></button>
+                </form>
 
-            <p id="printhere"></p>
+                <div id="output"><h2>Output will be here</h2></div>
 
-            <p>Alex Lynd | Michael Lee</p>
+                <p> ©2019 Alex Lynd | Michael Lee</p>
+            </div>
             <script>
                     var alphabet= ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-                    var element = document.getElementById('printhere');
-                    /* change shit*/
+                    var element = document.getElementById('output');
+                    /* implement better looping constructs */
                     function l2n(letters) {
                         element.innerHTML="";
                         tmp= "";
-                        if (isNaN (letters)) { 
-                            tmp="number";
-                            console.log("number");
-                            console.log(letters);
+                        if (!isNaN(letters[0])) { // detect if number based on first char
+                            var nums = letters.split(" ");
+                            console.log(nums);
+                            for (i=0; i<nums.length; i++){
+                                for (j=0; j<alphabet.length; j++) {
+                                    if (nums[i]==[j]){
+                                        tmp+=alphabet[j-1];
+                                    }
+                                    
+                                }
+                            }
                         }
-                        else {
-                            console.log("not a number");
+                        else { // if characters
                             letters=letters.toLowerCase();
                             for (i=0; i<letters.length; i++){
                                 for(j=0; j<26; j++){
                                     if (letters.charAt(i)==alphabet[j]) {
                                         tmp+=j+1; tmp+=" ";
                                     }
+                                   
                                 }
                             }
                         }
@@ -51,6 +61,7 @@
                     }
             </script>
         </main>
+
 
     </body>
 </html> 
