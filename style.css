@@ -14,16 +14,19 @@ body {
 menu {
     background: #1c1c1c;
     width: 100%;
-    top: 0;  right: 0;
     padding: 0;
     margin: 0 auto;
+    position: absolute;
+    z-index: 1;
 }
+
 menu a {
     color: white;
     text-decoration: none;
     display: inline-block;
-    padding: 10px;
+    padding: 20px;
     font-size: 15px;
+
 }   
 menu a:hover {
     text-decoration: underline;
@@ -32,8 +35,12 @@ menu a:first-child {
     margin-left: 5%;
 }
 main{
-    padding-top: 10%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
     text-align: center;
+    width: 100%;
+    height: 100%;
 }
 main p {
     padding: 20px;
@@ -42,17 +49,20 @@ main h1{
     text-align: center;
     font-size: 5em;    
 }
-
-form.example input[type=text] {
+form.searchForm {
+    margin:auto;padding: 0 5%; max-width:700px
+}
+form.searchForm input[type=text] {
     padding: 10px;
     font-size: 17px;
     border: 1px solid grey;
     float: left;
     width: 80%;
     background: #f1f1f1;
+    box-sizing: border-box;
   }
   
-  form.example button {
+  form.searchForm button {
     float: left;
     width: 20%;
     padding: 10px;
@@ -62,18 +72,31 @@ form.example input[type=text] {
     border: 1px solid grey;
     border-left: none;
     cursor: pointer;
+    box-sizing: border-box;
   }
   
-  form.example button:hover {
+  form.searchForm button:hover {
     background: #f2f2f2;
     color: #1c1c1c;
+    box-sizing: border-box;
   }
   
-  form.example::after {
+  form.searchForm::after {
     content: "";
     clear: both;
     display: table;
+    box-sizing: border-box;
   }
-  * {
-      box-sizing: border-box;
+  .centered {
+	position:absolute;
+    left:0; right:0;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: absolute;
+	margin:auto;
+  }
+  #right {
+      float: right;
+      margin-right: 5%;
   }
